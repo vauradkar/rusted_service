@@ -1,0 +1,35 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2021"
+authors = ["Vikram Auradkar <vikram.auradkar@gmail.com>"]
+include = ["LICENSE-APACHE", "LICENSE-MIT", "**/*.rs", "Cargo.toml"]
+rust-version = "1.82"
+
+[lints.rust]
+rust-2018-idioms = "warn"
+unsafe_code = { level = "warn" }
+missing_docs = { level = "warn" }
+
+[dependencies]
+aide = { version = "0.13.4", features = ["redoc", "scalar", "axum", "axum-extra", "macros"] }
+anyhow = "1.0.93"
+async-trait = "0.1.74"
+axum = "0.7.0"
+axum-jsonschema = { version = "0.8.0", features = ["aide"] }
+axum-login = "0.16.0"
+axum-macros = "0.4.2"
+axum-messages = "0.7.0"
+password-auth = "1.0.0"
+rand = "0.8.5"
+schemars = { version = "0.8.10", features = ["uuid1"] }
+serde = "1"
+serde_json = "1.0.133"
+sqlx = { version = "0.8.1", features = ["sqlite", "time", "runtime-tokio"] }
+thiserror = "1.0.56"
+time = "0.3.30"
+tokio = { version = "1.34.0", features = ["full"] }
+tower-sessions = { version = "0.13.0", default-features = false, features = ["signed"] }
+tower-sessions-sqlx-store = { version = "0.14.0", features = ["sqlite"] }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+uuid = { version = "1.1.2", features = ["serde", "v4"] }
